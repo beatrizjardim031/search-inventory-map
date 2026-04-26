@@ -13,19 +13,22 @@ public class Program {
 
     public static void main(String[] args) {
         loadInventory();
-        System.out.println("Loaded " + inventory.size() + " products!");
+        System.out.print("What product are you looking for? " );
+        String userChoice = input.nextLine();
 
+        Product found = inventory.get(userChoice);
+        if (found != null) {
+            System.out.printf("id: %d %s | Price: $%.2f%n", found.getId(), found.getName(), found.getPrice());
+        } else {
+            System.out.println("Sorry, we don't have this product :(");
+        }
 
-//        for(Product product : inventory) {
-//            System.out.printf("id: %d %s | Price: $%.2f%n", product.getId(), product.getName(), product.getPrice());
-//        }
 
     }
     public static void loadInventory() {
 
         System.out.print("What inventory would you like to see? ");
         String userChoice = input.nextLine();
-        System.out.println("We carry the following inventory: ");
 
         try {
             FileReader fileReader = new FileReader(userChoice);
