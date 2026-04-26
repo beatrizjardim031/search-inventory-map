@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
@@ -23,8 +22,6 @@ public class Program {
         } else {
             System.out.println("Sorry, we don't have this product :(");
         }
-
-
     }
     public static void loadInventory() {
 
