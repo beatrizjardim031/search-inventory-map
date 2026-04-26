@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
@@ -16,7 +17,7 @@ public class Program {
         System.out.print("What product are you looking for? " );
         String userChoice = input.nextLine();
 
-        Product found = inventory.get(userChoice);
+        Product found = inventory.get(userChoice.toLowerCase());
         if (found != null) {
             System.out.printf("id: %d %s | Price: $%.2f%n", found.getId(), found.getName(), found.getPrice());
         } else {
@@ -42,7 +43,7 @@ public class Program {
                 double price = Double.parseDouble(parts[2]);
 
 
-                inventory.put(name, new Product(id, name, price));
+                inventory.put(name.toLowerCase(), new Product(id, name, price));
                 line = bufferedReader.readLine();
 
 
